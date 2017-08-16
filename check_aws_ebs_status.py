@@ -67,7 +67,10 @@ statuses={}
 vols=[]
 for i in response['Volumes']:
 	id=i['Attachments'][0]['VolumeId']
-	name=i['Tags'][0]['Value']
+	try:
+		name=i['Tags'][0]['Value']
+	except:
+		name='NA'
 	statuses[id]={
 		'name': name
 	}
